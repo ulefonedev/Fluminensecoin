@@ -2,7 +2,7 @@ Gold Poker Core 1.0.0.2
 =================================================
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/gpkrcoin/gpkr/master/doc/bitcoin_logo_doxygen.png" width="256" />
+  <img src="https://raw.githubusercontent.com/GoldPoker/GoldPoker-coin/master/doc/bitcoin_logo_doxygen.png" width="256" />
 </p>
 
 
