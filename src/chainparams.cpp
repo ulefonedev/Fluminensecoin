@@ -130,7 +130,7 @@ public:
         pchMessageStart[1] = 0xc9;
         pchMessageStart[2] = 0xc3;
         pchMessageStart[3] = 0xd4;
-        vAlertPubKey = ParseHex("04053a5ad7559f75deff42b85fc125d01f3fdfe22ce6b8ed5020446a079f899333be826473a76ba2f7c9c339d1a154fd4b26eed13eaa4b41ef49775f766eced847");
+        vAlertPubKey = ParseHex("03c298d5154b172b2f706773bc190002ec419b618bd8e7eabc3285c29102ba22f7");
         nDefaultPort = 33303;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 5256000;
@@ -187,7 +187,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "0440f06498df74d80d33d258ec84a294bed7078557598c1c5d796909dc3d2dc4c2a6c3f066401b4e3a71cf583134d5c397efd07f2ff0dc2d14847befa89441c271";
+        strSporkKey = "03c298d5154b172b2f706773bc190002ec419b618bd8e7eabc3285c29102ba22f7";
         strMasternodePoolDummyAddress = "GQQ6cNVNg1R1A2e1AgtY1FPsh3d1wGekr7";
         nStartMasternodePayments = genesis.nTime + 86400; // 24 hours after genesis creation
 
