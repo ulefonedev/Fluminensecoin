@@ -109,8 +109,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Gold Poker Genesis Block";
-    const CScript genesisOutputScript = CScript() << ParseHex("043e5a5fbfbb2caa5f4b7c8fd24d890d6c244de254d579b5ba629f64c1b48275f59e0e1c834a60f6ffb4aaa022aaa4866434ca729a12465f80618fb2070045cb16") << OP_CHECKSIG;
+    const char* pszTimestamp = "Fluminense coin Genesis Block";
+    const CScript genesisOutputScript = CScript() << ParseHex("") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -126,12 +126,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xb2;
+        pchMessageStart[0] = 0xb9;
         pchMessageStart[1] = 0xc9;
-        pchMessageStart[2] = 0xc3;
-        pchMessageStart[3] = 0xd4;
-        vAlertPubKey = ParseHex("03c298d5154b172b2f706773bc190002ec419b618bd8e7eabc3285c29102ba22f7");
-        nDefaultPort = 33303;
+        pchMessageStart[2] = 0xc9;
+        pchMessageStart[3] = 0xd9;
+        vAlertPubKey = ParseHex("04b2b9e95f5045ca19cec8b9eb3348af60e3d34a75d0300769de822146c9b923d73f2213a34b2c1381b28536a465e94dc79435d4176feb7b0f0775f2bbd1350c3c");
+        nDefaultPort = 44004;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 5256000;
         nMaxReorganizationDepth = 100;
@@ -143,23 +143,23 @@ public:
         nTargetSpacing = 1 * 33;  // Gpkr: 33 sec
         nMaturity = 10;
         nMasternodeCountDrift = 1;
-        nMaxMoneyOut = 33333333 * COIN;
+        nMaxMoneyOut = 22000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 100;
-        nModifierUpdateBlock = 1; // we use the version 2 for GPKR
+        nModifierUpdateBlock = 1; // we use the version 2 for FFC
 
         genesis = CreateGenesisBlock(1530489600, 1209697, 0x1e0ffff0, 1, 50 * COIN);
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000007a5e645d8b8dd5ca2decb3b371772978cad4015d47832a41b8085eaa3f3"));
-        assert(genesis.hashMerkleRoot == uint256("0xb2de422ca09c5a4de0bd2e37b949feb74b06b7c38dd08e5ac18a6e7290d5c151"));
+        assert(hashGenesisBlock == uint256(""));
+        assert(genesis.hashMerkleRoot == uint256(""));
 
         // DNS Seeding
-        vSeeds.push_back(CDNSSeedData("s1.gold-poker.com", "s1.gold-poker.com"));
-        vSeeds.push_back(CDNSSeedData("s2.gold-poker.com", "s2.gold-poker.com"));
-        vSeeds.push_back(CDNSSeedData("s3.gold-poker.com", "s3.gold-poker.com"));
-        vSeeds.push_back(CDNSSeedData("s4.gold-poker.com", "s4.gold-poker.com"));
+        vSeeds.push_back(CDNSSeedData("95.179.137.61:44004", "95.179.137.61:44004"));
+        vSeeds.push_back(CDNSSeedData("149.28.142.251:44004", "149.28.142.251:44004"));
+        vSeeds.push_back(CDNSSeedData("95.179.137.61:44004", "95.179.137.61:44004"));
+        vSeeds.push_back(CDNSSeedData("149.28.142.251:44004", "149.28.142.251:44004"));
 
         // Gpkr addresses start with 'G'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38);
@@ -188,10 +188,10 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "03c298d5154b172b2f706773bc190002ec419b618bd8e7eabc3285c29102ba22f7";
-        strMasternodePoolDummyAddress = "GQQ6cNVNg1R1A2e1AgtY1FPsh3d1wGekr7";
+        strMasternodePoolDummyAddress = "";
         nStartMasternodePayments = genesis.nTime + 86400; // 24 hours after genesis creation
 
-        nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
+        nBudget_Fee_Confirmations = 9; // Number of confirmations for the finalization fee
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -215,8 +215,8 @@ public:
         pchMessageStart[1] = 0xc9;
         pchMessageStart[2] = 0xc3;
         pchMessageStart[3] = 0xd4;
-        vAlertPubKey = ParseHex("0447f078288cf5024694ad27634232226d9a35f2c0c91c898327b79339d7cb42106118290cc51083ecd16992f4d43e1be0597d7d2b46d39f425dd480ad52fb5024");
-        nDefaultPort = 33302;
+        vAlertPubKey = ParseHex("0498f74eca9c426af4d1d64e225e49f6c0f57c3abcc5bb04f519922b9b0997703cf0d488cb767cb1f506cafe4a89f2df10d2dbc79cfe0bcf0cba544bb43a82178e");
+        nDefaultPort = 44004;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -232,7 +232,7 @@ public:
         genesis = CreateGenesisBlock(1530489601, 2041133, 0x1e0ffff0, 1, 50 * COIN);
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("000007ea763e678e210d93fd00c90602a7cb090053ffabc2a798caa20ce84fd7"));
+        assert(hashGenesisBlock == uint256(""));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -261,7 +261,7 @@ public:
 
         nPoolMaxTransactions = 2;
         strSporkKey = "04464cc44e8055970909976649bb6b59c48c4861e6bd8092dccba7ac23bf383c184c7013cd07545d10f2ea6793ff83b68c7dae27eb7eb7b7e4039d413afb0d6cbe";
-        strMasternodePoolDummyAddress = "nQQ6cNVNg1R1A2e1AgtY1FPsh3d1wGekr7";
+        strMasternodePoolDummyAddress = "";
         nStartMasternodePayments = genesis.nTime + 86400; // 24 hours after genesis
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
@@ -284,10 +284,10 @@ public:
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
         strNetworkID = "regtest";
-        pchMessageStart[0] = 0xb2;
+        pchMessageStart[0] = 0xb9;
         pchMessageStart[1] = 0xc9;
-        pchMessageStart[2] = 0xc3;
-        pchMessageStart[3] = 0xd4;
+        pchMessageStart[2] = 0xc9;
+        pchMessageStart[3] = 0xd9;
         nSubsidyHalvingInterval = 150;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -301,7 +301,7 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 238079;
-        assert(hashGenesisBlock == uint256("0x5f38eb5967ef70b09b8164c98bcde68cf01dcf46435b83f5f66dc0de18196163"));
+        assert(hashGenesisBlock == uint256(""));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Regtest mode doesn't have any DNS seeds.
