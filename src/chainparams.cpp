@@ -110,7 +110,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     const char* pszTimestamp = "Fluminense coin Genesis Block";
-    const CScript genesisOutputScript = CScript() << ParseHex("") << OP_CHECKSIG;
+    const CScript genesisOutputScript = CScript() << ParseHex() << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -221,8 +221,8 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // Gpkr: 1 day
-        nTargetSpacing = 2 * 60;  // Gpkr: 1 minute
+        nTargetTimespan = 1 * 60; // FLUC: 1 day
+        nTargetSpacing = 2 * 60;  // FLUC: 1 minute
         nLastPOWBlock = 500;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
